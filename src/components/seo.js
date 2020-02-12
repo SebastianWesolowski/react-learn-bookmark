@@ -9,7 +9,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 
-function Seo({description, lang, meta, title, site}) {
+function SEO({description, lang, meta, title, site}) {
   const metaDescription = description || site.siteMetadata.description;
 
   return (
@@ -57,13 +57,13 @@ function Seo({description, lang, meta, title, site}) {
   );
 }
 
-Seo.defaultProps = {
+SEO.defaultProps = {
   lang: `en`,
   meta: [],
   description: ``,
 };
 
-Seo.propTypes = {
+SEO.propTypes = {
   description: PropTypes.string,
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
@@ -71,4 +71,4 @@ Seo.propTypes = {
   site: PropTypes.object.isRequired,
 };
 
-export default Seo;
+export default SEO;

@@ -5,7 +5,7 @@ import {Layout, Menu, Icon, Typography} from 'antd';
 import {useStaticQuery, graphql} from 'gatsby';
 import GlobalStyles from '../assets/styles/GlobalStyles';
 import theme from '../assets/styles/theme';
-import Seo from '../components/Seo';
+import SEO from '../components/seo';
 import Logo from '../assets/svg/logo.svg';
 
 const ThemeWrapper = styled.div`
@@ -39,7 +39,7 @@ const LayoutTemplate = ({children}) => {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
-      <Seo title="Home" site={site} />
+      <SEO title="Home" site={site} />
 
       <Layout>
         <Sider
