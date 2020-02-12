@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://bookmark.wesolowski.dev/sitemap.xml
