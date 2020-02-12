@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, { ThemeProvider } from 'styled-components';
+import styled, {ThemeProvider} from 'styled-components';
 import GlobalStyles from '../assets/styles/GlobalStyles';
 import theme from '../assets/styles/theme';
 import SEO from '../components/seo';
@@ -14,7 +14,7 @@ const ThemeWrapper = styled.div`
 `;
 
 // eslint-disable-next-line react/prop-types
-const LayoutTemplate = ({ children }) => (
+const LayoutTemplate = ({children}) => (
   <ThemeProvider theme={theme}>
     <>
       <GlobalStyles />

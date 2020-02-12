@@ -22,7 +22,7 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       # Run tests
-      - run: yarn test
+      - run: yarn analyze
       - run: yarn build
       # - deploy:
       #     command: |
