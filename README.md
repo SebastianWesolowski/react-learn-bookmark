@@ -17,8 +17,8 @@
       alt="Greenkeeper badge"
     />
   </a>
+<img src="https://api.netlify.com/api/v1/badges/b5f652df-5437-4c27-b53d-58f05e23c82f/deploy-status" alt="Deploy status badge">
 </p>
-[![Netlify Status](https://api.netlify.com/api/v1/badges/b5f652df-5437-4c27-b53d-58f05e23c82f/deploy-status)](https://app.netlify.com/sites/vigilant-curran-e6677f/deploys)
 <p align="center">
 Basic App on Gatsby
 Application for keeping notes
