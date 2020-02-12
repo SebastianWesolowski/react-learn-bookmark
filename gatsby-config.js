@@ -68,11 +68,5 @@ module.exports = {
     },
     `gatsby-transformer-json`,
     `gatsby-transformer-sharp`,
-    {
-      resolve: '@danbruegge/gatsby-plugin-stylelint',
-      option: {
-        files: ['**/*.js'],
-      },
-    },
   ],
 };

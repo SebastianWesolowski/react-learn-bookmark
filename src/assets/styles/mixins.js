@@ -14,29 +14,29 @@ export default function flexUnit({
   const exportLetterSpacing = () => {
     const checkUnit = () => {
       if (typeof letterSpacing !== 'string') {
-        return { isUnit: false, Unit: false };
+        return {isUnit: false, Unit: false};
       }
       let existInArray = false;
       const arrayUnit = ['%', 'px', 'em', 'vh', 'vw', 'pt', 'pc', 'ex', 'cm', 'mm', 'in', 'rem'];
       if (letterSpacing.length >= 4) {
         existInArray = arrayUnit.indexOf(letterSpacing.toLocaleLowerCase().slice(-3));
         if (existInArray >= 0) {
-          return { isUnit: true, Unit: arrayUnit[existInArray] };
+          return {isUnit: true, Unit: arrayUnit[existInArray]};
         }
       }
       if (letterSpacing.length >= 3) {
         existInArray = arrayUnit.indexOf(letterSpacing.toLocaleLowerCase().slice(-2));
         if (existInArray >= 0) {
-          return { isUnit: true, Unit: arrayUnit[existInArray] };
+          return {isUnit: true, Unit: arrayUnit[existInArray]};
         }
       }
       if (letterSpacing.length >= 2) {
         existInArray = arrayUnit.indexOf(letterSpacing.toLocaleLowerCase().slice(-1));
         if (existInArray >= 0) {
-          return { isUnit: true, Unit: arrayUnit[existInArray] };
+          return {isUnit: true, Unit: arrayUnit[existInArray]};
         }
       }
-      return { isUnit: false, Unit: false };
+      return {isUnit: false, Unit: false};
     };
 
     if (checkUnit().isUnit) {
