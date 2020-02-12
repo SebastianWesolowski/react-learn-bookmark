@@ -11,7 +11,7 @@ module.exports = {
       resolve: 'gatsby-plugin-react-svg',
       options: {
         rule: {
-          include: /assets\/images\/.*\.svg$/,
+          include: /assets/,
         },
       },
     },
@@ -68,5 +68,6 @@ module.exports = {
     },
     `gatsby-transformer-json`,
     `gatsby-transformer-sharp`,
+    'gatsby-plugin-antd',
   ],
 };
