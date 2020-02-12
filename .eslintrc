@@ -7,10 +7,10 @@
   "rules": {
     "no-console": "warn",
     "react/jsx-filename-extension": 0,
-    "react/forbid-prop-types": "warn",
+    "react/forbid-prop-types": ["warn", {"forbid":["any"]}],
     "no-unused-vars": "warn",
     "react/no-array-index-key": 0,
-    "react/prop-types": "warn",
+    "react/prop-types": "warn"
   },
   "extends": [
     "airbnb",

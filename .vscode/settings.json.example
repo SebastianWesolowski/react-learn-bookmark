@@ -1,5 +1,5 @@
 {
-  "window.title": "'AN 2019' ${separator}${rootName}${separator}${activeEditorMedium}",
+  "window.title": "'REACT Learn - Bookmark' ${separator}${rootName}${separator}${activeEditorMedium}",
   //https://github.com/tonsky/FiraCode
   "editor.fontFamily": "FiraCode-Retina",
   "editor.fontLigatures": true,
@@ -25,10 +25,12 @@
   },
   "files.eol": "\r\n",
   "files.exclude": {
-    // "**/.vscode": true,
+    "**/.vscode": true,
+    "**/.yarnclean": true,
+    "**/.circleci": true,
     "**/.vscode/launch.json": true,
     "**/.vscode/extensions.json": true,
-    // "**/.vscode/settings.json.example": true,
+    "**/.vscode/settings.json.example": true,
     "**/.git": true,
     "**/.gitignore": true,
     "**/.cache": true,
@@ -41,7 +43,6 @@
     "**/.prettierrc": true,
     "**/.prettierignore": true,
     "**/.eslintrc": true,
-    "**/.stylelintrc": true,
     "**/.huskyrc": true,
     "**/.lintstagedrc": true,
     "**/.editorconfig": true,

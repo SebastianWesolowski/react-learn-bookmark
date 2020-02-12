@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:12.13.0-browsers
+      - image: circleci/node:10
     working_directory: ~/repo
     steps:
       - checkout
@@ -22,8 +22,9 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       # Run tests
-      - run: yarn analyze
-      - run: yarn build
+      - run:
+          name: Gatsby Build
+          command: yarn build
       # - deploy:
       #     command: |
       #       git config --global user.email $GH_EMAIL
