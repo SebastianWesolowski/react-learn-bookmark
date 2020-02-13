@@ -9,11 +9,6 @@ export default createGlobalStyle`
 	/* https://developer.mozilla.org/en-US/docs/Web/CSS/font-smooth  */
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-
-  @media(min-width:1200px){
-    cursor:none!important;
-
-  }
 }
 
 
