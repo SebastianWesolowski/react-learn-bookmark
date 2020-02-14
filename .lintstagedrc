@@ -2,6 +2,7 @@
   "*.js": [
     "prettier --config .prettierrc --write",
     "eslint --fix",
+    "stylelint --fix",
     "git add"
   ]
 }
