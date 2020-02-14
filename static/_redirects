@@ -1,0 +1,7 @@
+# These rules will change if you change your site’s custom domains or HTTPS settings
+
+# Redirect domain aliases to primary domain
+https://www.bookmark.wesolowski.dev/* https://bookmark.wesolowski.dev/:splat 301!
+
+# Optional: Redirect default Netlify subdomain to primary domain
+https://vigilant-curran-e6677f.netlify.com/* https://bookmark.wesolowski.dev/:splat 301!
