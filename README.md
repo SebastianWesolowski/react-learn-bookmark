@@ -20,7 +20,7 @@
 <img src="https://api.netlify.com/api/v1/badges/b5f652df-5437-4c27-b53d-58f05e23c82f/deploy-status" alt="Deploy status badge">
 </p>
 <p align="center">
-Basic App on Gatsby
+Basic App on <b>Gatsby</b>
 Application for keeping notes
 </p>
 
