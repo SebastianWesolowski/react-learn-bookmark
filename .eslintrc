@@ -7,10 +7,26 @@
   "rules": {
     "no-console": "warn",
     "react/jsx-filename-extension": 0,
-    "react/forbid-prop-types": ["warn", {"forbid":["any"]}],
+    "react/forbid-prop-types": [
+      "warn",
+      {
+        "forbid": [
+          "any"
+        ]
+      }
+    ],
     "no-unused-vars": "warn",
     "react/no-array-index-key": 0,
-    "react/prop-types": "warn"
+    "react/prop-types": "warn",
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": [
+          ".storybook/**",
+          "stories/**"
+        ]
+      }
+    ]
   },
   "extends": [
     "airbnb",
@@ -19,7 +35,9 @@
     "prettier",
     "prettier/react"
   ],
-  "plugins": ["prettier"],
+  "plugins": [
+    "prettier"
+  ],
   "globals": {
     "window": true,
     "document": true
@@ -30,8 +48,15 @@
     },
     "import/resolver": {
       "node": {
-        "paths": ["./src"],
-        "extensions": [".js"]
+        "paths": [
+          "./src"
+        ],
+        "extensions": [
+          ".js",
+          ".jsx",
+          ".ts",
+          ".tsx"
+        ]
       }
     }
   }
