@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, {ThemeProvider} from 'styled-components';
-import {Layout, Menu, Icon, Typography} from 'antd';
+import {Layout, Menu, Typography} from 'antd';
 import {useStaticQuery, graphql} from 'gatsby';
 import GlobalStyles from '../assets/styles/GlobalStyles';
 import theme from '../assets/styles/theme';
 import SEO from '../components/seo';
 import Logo from '../assets/svg/logo.svg';
+import MenuItem from '../components/MenuItem/MenuItem';
 
 const ThemeWrapper = styled.div`
   width: 90vw;
@@ -20,7 +21,6 @@ const ThemeWrapper = styled.div`
 const {Content, Footer, Sider} = Layout;
 const {Title} = Typography;
 
-// eslint-disable-next-line react/prop-types
 const LayoutTemplate = ({children}) => {
   const {site} = useStaticQuery(
     graphql`
@@ -57,18 +57,15 @@ const LayoutTemplate = ({children}) => {
             </Title>
           </Content>
           <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
-            <Menu.Item key="1">
-              <Icon type="twitter" />
-              <span className="nav-text">Titter</span>
-            </Menu.Item>
-            <Menu.Item key="2">
-              <Icon type="container" />
-              <span className="nav-text">Artykuły</span>
-            </Menu.Item>
-            <Menu.Item key="3">
-              <Icon type="file-text" />
-              <span className="nav-text">Notatki</span>
-            </Menu.Item>
+            <MenuItem key="1" iconType="twitter">
+              Titter
+            </MenuItem>
+            <MenuItem key="2" iconType="container">
+              Artykuły
+            </MenuItem>
+            <MenuItem key="3" iconType="file-text">
+              Notatki
+            </MenuItem>
           </Menu>
         </Sider>
         <Layout style={{marginLeft: 200, height: '100vh'}}>
@@ -84,12 +81,8 @@ const LayoutTemplate = ({children}) => {
   );
 };
 
-LayoutTemplate.defaultProps = {
-  children: null,
-};
-
-LayoutTemplate.propType = {
-  children: PropTypes.node,
+LayoutTemplate.propTypes = {
+  children: PropTypes.node.isRequired,
 };
 
 export default LayoutTemplate;
