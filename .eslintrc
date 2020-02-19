@@ -18,15 +18,8 @@
     "no-unused-vars": "warn",
     "react/no-array-index-key": 0,
     "react/prop-types": "warn",
-    "import/no-extraneous-dependencies": [
-      "error",
-      {
-        "devDependencies": [
-          ".storybook/**",
-          "stories/**"
-        ]
-      }
-    ]
+    "react/jsx-props-no-spreading":0,
+    "import/no-extraneous-dependencies":0
   },
   "extends": [
     "airbnb",
