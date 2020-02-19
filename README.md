@@ -26,6 +26,6 @@ Application for keeping notes
 
 <p align="center">
   <strong>
-    You cen check online beta version at <a href="http://bookmark.wesolowski.dev">bookmark.wesolowski.dev</a>.
+    You cen check online beta version at <a href="http://bookmark.wesolowski.dev">bookmark.wesolowski.dev</a>
   </strong>
 </p>
