@@ -1,10 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {Menu} from 'antd';
 import MenuItem from './MenuItem';
 
-const NavMenu = () => {
+const NavMenu = ({theme, ...props}) => {
   return (
-    <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
+    <Menu theme={theme} {...props} mode="inline" defaultSelectedKeys={['1']}>
       <MenuItem key="1" iconType="twitter">
         Titter
       </MenuItem>
@@ -16,6 +17,14 @@ const NavMenu = () => {
       </MenuItem>
     </Menu>
   );
+};
+
+NavMenu.defaultProps = {
+  theme: 'dark',
+};
+
+NavMenu.propTypes = {
+  theme: PropTypes.oneOf(['dark', 'light']),
 };
 
 export default NavMenu;

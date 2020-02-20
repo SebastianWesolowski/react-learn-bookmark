@@ -35,6 +35,7 @@
     "url": "https://github.com/SebastianWesolowski/react-learn-bookmark/issues"
   },
   "dependencies": {
+    "@storybook/addon-knobs": "^5.3.13",
     "antd": "^3.26.9",
     "cross-env": "^7.0.0",
     "gatsby": "^2.19.17",
