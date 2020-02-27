@@ -3,10 +3,11 @@ import PropTypes from 'prop-types';
 import {Menu} from 'antd';
 import MenuItem from './MenuItem';
 
-const NavMenu = ({theme, ...props}) => {
-  return (
-    <>
-      <Menu theme={theme} {...props} mode="inline" defaultSelectedKeys={['1']}>
+class NavMenu extends React.PureComponent {
+  render() {
+    const {theme} = this.props;
+    return (
+      <Menu theme={theme} mode="inline" defaultSelectedKeys={['1']}>
         <MenuItem key="1" iconType="twitter" href="/twitter">
           Twitter
         </MenuItem>
@@ -17,9 +18,9 @@ const NavMenu = ({theme, ...props}) => {
           Notatki
         </MenuItem>
       </Menu>
-    </>
-  );
-};
+    );
+  }
+}
 
 NavMenu.defaultProps = {
   theme: 'dark',
