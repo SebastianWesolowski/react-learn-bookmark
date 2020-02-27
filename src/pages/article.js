@@ -1,5 +1,5 @@
 import React from 'react';
-import LayoutTemplate from '../templates/layoutTemplate';
+import LayoutTemplate from '../templates/LayoutTemplate';
 
 const IndexPage = () => {
   return (
