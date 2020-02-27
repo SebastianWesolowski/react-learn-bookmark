@@ -1,14 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, {ThemeProvider} from 'styled-components';
-import {Layout, Typography} from 'antd';
+import {Layout} from 'antd';
 import {useStaticQuery, graphql} from 'gatsby';
 import AppContext from '../context';
 import GlobalStyles from '../assets/styles/GlobalStyles';
 import theme from '../assets/styles/theme';
 import SEO from '../components/SEO';
-import Logo from '../assets/svg/logo.svg';
-import NavMenu from '../components/NavMenu/NavMenu';
+import SideBar from '../components/SideBar/SideBar';
 
 const ThemeWrapper = styled.div`
   width: 90vw;
@@ -19,8 +18,21 @@ const ThemeWrapper = styled.div`
   }
 `;
 
-const {Content, Footer, Sider} = Layout;
-const {Title} = Typography;
+const {Content, Footer} = Layout;
+
+const StyledLayout = styled(Layout)`
+  height: 100vh;
+  margin-left: 200px;
+`;
+const StyledContent = styled(Content)`
+  margin: 24px 16px 0;
+  overflow: initial;
+  padding: 24px;
+  background: #fff;
+`;
+const StyledFooter = styled(Footer)`
+  text-align: left;
+`;
 
 const LayoutTemplate = ({children}) => {
   const {site} = useStaticQuery(
@@ -43,39 +55,13 @@ const LayoutTemplate = ({children}) => {
       <SEO title="Home" site={site} />
       <AppContext.Provider>
         <Layout>
-          {/* <BrowserRouter> */}
-          <Sider
-            style={{
-              overflow: 'auto',
-              height: '100vh',
-              position: 'fixed',
-              left: 0,
-            }}
-          >
-            <Content style={{padding: '24px 40px 10px', overflow: 'initial'}}>
-              <Logo fill="#ffffff" opacity="0.65" />
-              <Title style={{color: '#ffffff', opacity: '0.65'}} level={4}>
-                Bookmark
-              </Title>
-            </Content>
-            <NavMenu />
-          </Sider>
-          <Layout style={{marginLeft: 200, height: '100vh'}}>
-            <Content style={{margin: '24px 16px 0', overflow: 'initial'}}>
-              <div style={{padding: 24, background: '#fff'}}>
-                <ThemeWrapper>
-                  {/* <Switch>
-                    <Route exact path="/twitter" component={PageTwitter} />
-                    <Route path="/article" component={PageLink} />
-                    <Route path="/note" component={PageNote} />
-                  </Switch> */}
-                  {children}
-                </ThemeWrapper>
-              </div>
-            </Content>
-            <Footer style={{textAlign: 'left'}}>{site.siteMetadata.description}</Footer>
-          </Layout>
-          {/* </BrowserRouter> */}
+          <SideBar />
+          <StyledLayout>
+            <StyledContent>
+              <ThemeWrapper>{children}</ThemeWrapper>
+            </StyledContent>
+            <StyledFooter>{site.siteMetadata.description}</StyledFooter>
+          </StyledLayout>
         </Layout>
       </AppContext.Provider>
     </ThemeProvider>
