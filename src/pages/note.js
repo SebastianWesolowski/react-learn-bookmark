@@ -4,7 +4,7 @@ import LayoutTemplate from '../templates/layoutTemplate';
 const IndexPage = () => {
   return (
     <LayoutTemplate>
-      <h1>Hello world - index.js</h1>
+      <h1>Notes</h1>
     </LayoutTemplate>
   );
 };
