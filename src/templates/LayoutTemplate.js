@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, {ThemeProvider} from 'styled-components';
 import {Layout} from 'antd';
-import {useStaticQuery, graphql} from 'gatsby';
+// import {useStaticQuery, graphql} from 'gatsby';
+import {StaticQuery, graphql} from 'gatsby';
 import AppContext from '../context';
 import GlobalStyles from '../assets/styles/GlobalStyles';
 import theme from '../assets/styles/theme';
@@ -34,39 +35,100 @@ const StyledFooter = styled(Footer)`
   text-align: left;
 `;
 
-const LayoutTemplate = ({children}) => {
-  const {site} = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            description
-            author
-          }
-        }
-      }
-    `
-  );
+class LayoutTemplate extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {selectedPage: '1'};
+  }
 
-  return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyles />
-      <SEO title="Home" site={site} />
-      <AppContext.Provider>
-        <Layout>
-          <SideBar />
-          <StyledLayout>
-            <StyledContent>
-              <ThemeWrapper>{children}</ThemeWrapper>
-            </StyledContent>
-            <StyledFooter>{site.siteMetadata.description}</StyledFooter>
-          </StyledLayout>
-        </Layout>
-      </AppContext.Provider>
-    </ThemeProvider>
-  );
-};
+  changePage = (e, newItem) => {
+    e.preventDefault();
+
+    this.setState(prevState => ({
+      [newItem.type]: [...prevState[newItem.type], newItem],
+    }));
+
+    this.closeModal();
+  };
+
+  render() {
+    const contextElement = {
+      ...this.state,
+    };
+
+    const LayoutTemplateContent = ({data}) => {
+      const {children} = this.props;
+      return (
+        <ThemeProvider theme={theme}>
+          <GlobalStyles />
+          <SEO title="Home" site={data.site} />
+          <AppContext.Provider value={contextElement}>
+            <Layout>
+              <SideBar />
+              <StyledLayout>
+                <StyledContent>
+                  <ThemeWrapper>{children}</ThemeWrapper>
+                </StyledContent>
+                <StyledFooter>{data.site.siteMetadata.description}</StyledFooter>
+              </StyledLayout>
+            </Layout>
+          </AppContext.Provider>
+        </ThemeProvider>
+      );
+    };
+
+    return (
+      <StaticQuery
+        query={graphql`
+          query {
+            site {
+              siteMetadata {
+                title
+                description
+                author
+              }
+            }
+          }
+        `}
+        render={data => <LayoutTemplateContent data={data} />}
+      />
+    );
+  }
+}
+
+// const LayoutTemplate = ({children}) => {
+//   const {site} = useStaticQuery(
+//     graphql`
+//       query {
+//         site {
+//           siteMetadata {
+//             title
+//             description
+//             author
+//           }
+//         }
+//       }
+//     `
+//   );
+
+//   return (
+//     <ThemeProvider theme={theme}>
+//       <GlobalStyles />
+//       <SEO title="Home" site={site} />
+//       <AppContext.Provider value={contextElement}>
+//         <Layout>
+//           <SideBar />
+//           <StyledLayout>
+//             <StyledContent>
+//               <ThemeWrapper>{children}</ThemeWrapper>
+//             </StyledContent>
+//             <StyledFooter>{site.siteMetadata.description}</StyledFooter>
+//           </StyledLayout>
+//         </Layout>
+//       </AppContext.Provider>
+//     </ThemeProvider>
+//   );
+// };
 
 LayoutTemplate.propTypes = {
   children: PropTypes.node.isRequired,
