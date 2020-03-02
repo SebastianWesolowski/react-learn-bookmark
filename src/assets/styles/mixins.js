@@ -4,14 +4,48 @@ export default function flexUnit({
   lineHeight = 'normal',
   letterSpacing = -20,
 } = {}) {
-  const exportLineHeight = () => {
-    if (lineHeight === 'normal') {
-      return `line-height: ${lineHeight}`;
+  const exportFontSize = () => {
+    let fontSizeLowerCase;
+
+    if (typeof fontSize === 'string') {
+      fontSizeLowerCase = fontSize.toLocaleLowerCase();
     }
-    return `line-height: ${lineHeight}px `;
+
+    if (fontSizeLowerCase === 'unset' || fontSizeLowerCase === '0' || fontSize === 0) {
+      return '';
+    }
+
+    return `font-size: ${fontSize}px;`;
+  };
+
+  const exportLineHeight = () => {
+    let lineHeightLowerCase;
+
+    if (typeof lineHeight === 'string') {
+      lineHeightLowerCase = lineHeight.toLocaleLowerCase();
+    }
+
+    // TODO Case for lineheight 0px
+    if (lineHeightLowerCase === 'unset' || lineHeightLowerCase === '0' || lineHeight === 0) {
+      return '';
+    }
+
+    if (lineHeight === 'normal') {
+      return `line-height: ${lineHeight};`;
+    }
+    return `line-height: ${lineHeight}px;`;
   };
 
   const exportLetterSpacing = () => {
+    let letterSpacingLowerCase;
+
+    if (typeof letterSpacing === 'string') {
+      letterSpacingLowerCase = letterSpacing.toLocaleLowerCase();
+    }
+    if (letterSpacingLowerCase === 'unset' || letterSpacingLowerCase === '0' || letterSpacing === 0) {
+      return '';
+    }
+
     const checkUnit = () => {
       if (typeof letterSpacing !== 'string') {
         return {isUnit: false, Unit: false};
@@ -40,10 +74,10 @@ export default function flexUnit({
     };
 
     if (checkUnit().isUnit) {
-      return `letter-spacing: ${letterSpacing.toLocaleLowerCase()}`;
+      return `letter-spacing: ${letterSpacing.toLocaleLowerCase()};`;
     }
 
-    return `letter-spacing: ${letterSpacing / 1000}em`;
+    return `letter-spacing: ${letterSpacing / 1000}em;`;
   };
 
   const exportWidth = () => {
@@ -52,6 +86,14 @@ export default function flexUnit({
 
     if (typeof weight === 'string') {
       weightLowerCase = weight.toLocaleLowerCase();
+    }
+
+    if (weightLowerCase === 'unset' || weightLowerCase === '0' || weight === 0) {
+      return '';
+    }
+
+    if (typeof weight === 'number') {
+      return `font-weight: ${weight};`;
     }
 
     if (weightLowerCase === 'thin' || weightLowerCase === ' 100' || weight === 100) {
@@ -76,7 +118,8 @@ export default function flexUnit({
   };
 
   return `
-    font-size: ${fontSize}px;
+
+    ${exportFontSize()}
     ${exportLineHeight()}
     ${exportLetterSpacing()}
     ${exportWidth()}

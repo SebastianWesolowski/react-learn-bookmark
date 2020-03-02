@@ -7,15 +7,29 @@ import MenuItem from './MenuItem';
 import AppContext from '../../context';
 
 class NavMenu extends React.Component {
-  state = {selectedPage: '1'};
-
-  changePage = e => {
-    const {selectedPage} = this.state;
-    console.log(e.key);
-    this.setState({selectedPage: e.key});
-
-    console.log('selectedPage:', selectedPage);
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     selectedPage: '1',
+  //   };
+  // }
+  state = {
+    selectedPage: '1',
   };
+
+  // {selectedPage} = this.state;
+  handleChange = e => {
+    this.setState({selectedPage: 'e.key'});
+    console.log(e.key);
+    // eslint-disable-next-line react/no-direct-mutation-state
+    this.state.selectedPage = e.key;
+    // eslint-disable-next-line react/destructuring-assignment
+    console.log(this.state.selectedPage);
+  };
+
+  // changePage(e) {
+  //   this.setState({selectedPage: e.key});
+  // }
 
   render() {
     const {theme} = this.props;
@@ -24,17 +38,19 @@ class NavMenu extends React.Component {
     return (
       <AppContext.Consumer>
         {context => (
-          <Menu theme={theme} mode="inline" selectedKeys={[selectedPage]}>
-            <MenuItem key="1" iconType="twitter" href="/twitter" onClick={e => this.changePage(e)}>
-              Twitter
-            </MenuItem>
-            <MenuItem key="2" iconType="container" href="/article" onClick={e => this.changePage(e)}>
-              Artykuły
-            </MenuItem>
-            <MenuItem key="3" iconType="file-text" href="/note" onClick={e => this.changePage(e)}>
-              Notatki
-            </MenuItem>
-          </Menu>
+          <>
+            <Menu theme={theme} mode="inline" selectedKeys={[selectedPage]}>
+              <MenuItem key="1" iconType="twitter" href="/twitter" onClick={this.handleChange}>
+                Twitter
+              </MenuItem>
+              <MenuItem key="2" iconType="container" href="/article" onClick={this.handleChange}>
+                Artykuły
+              </MenuItem>
+              <MenuItem key="3" iconType="file-text" href="/note" onClick={this.handleChange}>
+                Notatki
+              </MenuItem>
+            </Menu>
+          </>
         )}
       </AppContext.Consumer>
     );
