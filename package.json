@@ -14,11 +14,6 @@
     "format": "prettier --config ./.prettierrc --write \"**/*.{js,jsx,json,md}\"",
     "analyze": "ANALYZE_BUNDLE_SIZE=true gatsby build"
   },
-  "greenkeeper": {
-    "ignore": [
-      "core-js"
-    ]
-  },
   "private": true,
   "keywords": [
     "gatsby",
